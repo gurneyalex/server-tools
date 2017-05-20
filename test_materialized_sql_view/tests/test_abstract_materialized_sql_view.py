@@ -10,9 +10,10 @@ class AbstractMaterializedSqlViewTester(OpenErpAssertions, TransactionCase):
 
     def setUp(self):
         super(AbstractMaterializedSqlViewTester, self).setUp()
-        self.demo_matview_mdl = self.env['test.materialized.view'].with_context(
-            {'ascyn': False}
-        )
+        self.demo_matview_mdl = self.env[
+            'test.materialized.view'].with_context(
+                {'ascyn': False}
+            )
         self.mat_view_mdl = self.env['materialized.sql.view']
         self.users_mdl = self.env['res.users']
         self.ref = self.env.ref
@@ -70,7 +71,7 @@ class AbstractMaterializedSqlViewTester(OpenErpAssertions, TransactionCase):
         sql = self.demo_matview_mdl.sql_view_definition
         self.demo_matview_mdl._sql_view_definition = None
         with self.assertRaises(ValueError):
-            self.demo_matview_mdl.sql_view_definition
+            sql = self.demo_matview_mdl.sql_view_definition
         # Set it back to iniatial value, this is used in some other unit test
         self.demo_matview_mdl._sql_view_definition = sql
 
