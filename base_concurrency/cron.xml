@@ -9,7 +9,6 @@
         -->
         <record model="ir.cron" id="cron_res_users_login">
             <field name="name">Synchronize login dates in res.users</field>
-            <field name="interval_number">1</field>
             <field name="active" eval="False"/>
             <field name="user_id" ref="base.user_root"/>
             <field name="interval_number">1</field>
